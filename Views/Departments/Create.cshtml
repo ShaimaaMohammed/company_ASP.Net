@@ -1,0 +1,34 @@
+﻿@model Department
+<h1 class="alert alert-success text-center">Create Department</h1>
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Departments" asp-action="AddNew">
+    <div>
+        <label>Name</label>
+        <input type="text" asp-for="Name" class="form-control"/>
+        
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" asp-for="Description" class="form-control"/>
+
+    </div>
+    <div>
+        <label>Annual Budget</label>
+        <input type="number" asp-for="AnnualBudget" class="form-control"/>
+
+    </div>
+    <div>
+        <label>Start Date</label>
+        <input asp-for="StartDate" class="form-control" />
+
+    </div>
+
+     <div>
+        <label>Is Active</label>
+        <input asp-for="IsActive" />
+
+    </div>
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+
+</form>
+</div>

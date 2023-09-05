@@ -1,0 +1,243 @@
+﻿@model List<Employee>
+<h1 class="alert alert-success">Employees Index</h1>
+<h1 class="alert alert-success text-center">Welcome to SkyLine!</h1>
+<a asp-controller="Employees" asp-action="GetCreateView" class="btn btn-success mb-1">Create New</a>
+
+
+@*@{
+    string companyName = "SkyLine Corporation";
+    string email = "info@SkyLine.com";
+    string address = "15 Ahmed Orabi st. ";
+}
+<p>Welcome to @companyName! You can contact us by email @email or visit us at @address</p>
+
+@{
+    Employee emp = new Employee
+    {
+            Id=50,
+            Name="Shaimaa Mohammed",
+            Position="Developer",
+            Salary=257000,
+            BirthDate = new DateTime(2000,11,12),
+            JoinDate = new DateTime(2022,6,6),
+            IsActive = true
+
+    };
+
+}
+
+<dl class="row">
+    <dt class="col-2">Id</dt>
+    <dd class="col-10">@emp.Id</dd>
+
+    <dt class="col-2">Name</dt>
+    <dd class="col-10">@emp.Name</dd>
+
+    <dt class="col-2">Position</dt>
+    <dd class="col-10">@emp.Position</dd>
+
+    <dt class="col-2">Salary</dt>
+    <dd class="col-10">@emp.Salary</dd>
+
+    <dt class="col-2">BirthDate</dt>
+    <dd class="col-10">@emp.BirthDate.ToShortDateString()</dd>
+
+    <dt class="col-2">JoinDate</dt>
+    <dd class="col-10">@emp.JoinDate.ToShortDateString()</dd>
+
+    <dt class="col-2">IsActive</dt>
+    <dd class="col-10">@emp.IsActive</dd>
+</dl>
+<div></div>
+
+@{
+    List<Employee> employees = new List<Employee>
+    {
+        new Employee{Id=51, Name="Khaled Mohammed", Position="Mobile App Developer",Salary=15000m,BirthDate=new DateTime(2019,6,16),JoinDate=new DateTime(2019,6,16),IsActive=true},
+        new Employee{Id=52, Name="Ahmed Mohammed", Position="Desktop App Developer",Salary=275000m,BirthDate=new DateTime(2014,4,14),JoinDate=new DateTime(2019,6,16),IsActive=true},
+        new Employee{Id=53, Name="Noor Ahmed", Position="Quality control",Salary=135000m,BirthDate=new DateTime(2017,7,17),JoinDate=new DateTime(2019,6,16),IsActive=true},
+        new Employee{Id=54, Name="Maha Ahmed", Position="Project Manager",Salary=45000m,BirthDate=new DateTime(2018,8,18),JoinDate=new DateTime(2019,6,16),IsActive=false},
+
+    };
+}
+<ul class="list-group col-4">
+    @{
+        <li class="list-group-item active">Employees</li>
+        @foreach (var item in employees)
+        {
+            <li class="list-group-item  list-group-item-action">[@item.Id] @item.Name (@item.Position) </li>
+        }
+    }
+</ul>
+<div></div>
+@{
+    List<Employee> newEmployees = new List<Employee>();
+}
+<div>company</div>*@
+@if (Model.Count() > 0)
+{
+
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>BirthDate</th>
+                <th>JoinDate</th>
+                <th>IsActive</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Position</td>
+                    <td>@item.Salary</td>
+                    <td>@item.BirthDate</td>
+                    <td>@item.JoinDate</td>
+                    <td>@item.IsActive</td>
+                    <td><a asp-controller="Employees" asp-action="GetDetailsView" asp-route-id="@item.Id">Detail</a> </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">Total</th>
+                <th>@Model.Sum(dept=>dept.Salary)</th>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Employees to display.</h1>
+}
+
+@*@if (newEmployees.Count > 0)
+{
+
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>BirthDate</th>
+                <th>JoinDate</th>
+                <th>IsActive</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in newEmployees)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Position</td>
+                    <td>@item.Salary</td>
+                    <td>@item.BirthDate</td>
+                    <td>@item.JoinDate</td>
+                    <td>@item.IsActive</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">Total</th>
+                <th>@newEmployees.Sum(dept=>dept.Salary)</th>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Employees to display.</h1>
+}*@
+
+
+@if (Model.Count() > 0)
+{
+
+    @foreach (var item in Model)
+    {
+        <div class="card bg-primary mb-2 text-white text-center" style="width:18rem;height:12rem;display:inline-block">
+            <div class="card-header">
+                @item.Name
+            </div>
+            <div class="card-body">
+                <h5 class="title">@item.Position </h5>
+                <div class="card-text">Join at @item.JoinDate.ToShortDateString()</div>
+            </div>
+            <div class="card-footer">
+                @item.Salary.ToString("C0")
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Employees to display.</h1>
+}
+<div></div>
+@if (Model.Count() > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card bg-light mb-2 text-dark text-center" style="width:18rem;height:12rem;display:inline-block">
+            <div class="card-header">
+                @item.Name
+            </div>
+            <div class="card-body">
+                <h5 class="title">@item.Position </h5>
+                <div class="card-text">Join at @item.JoinDate.ToShortDateString()</div>
+            </div>
+            <div class="card-footer">
+                @item.Salary.ToString("C0")
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Employees to display.</h1>
+}
+<div></div>
+@if (Model.Count() > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card border-success bg-transparent mb-2 text-dark text-center" style="width:18rem;height:12rem;display:inline-block;">
+            <div class="card-header border-success bg-transparent">
+                @item.Name
+            </div>
+            <div class="card-body border-success bg-transparent">
+                <h5 class="title">@item.Position </h5>
+                <div class="card-text">Join at @item.JoinDate.ToShortDateString()</div>
+            </div>
+            <div class="card-footer border-success bg-transparent ">
+                @item.Salary.ToString("C0")
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Employees to display.</h1>
+}
+<div></div>
+
+
+Current date and time: @DateTime.Now

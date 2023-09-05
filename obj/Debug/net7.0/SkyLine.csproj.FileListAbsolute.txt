@@ -1,0 +1,9 @@
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.csproj.AssemblyReference.cache
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.AssemblyInfoInputs.cache
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.AssemblyInfo.cs
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.csproj.CoreCompileInputs.cache
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.RazorAssemblyInfo.cache
+C:\Users\SHIMAA\source\repos\SkyLine\SkyLine\obj\Debug\net7.0\SkyLine.RazorAssemblyInfo.cs

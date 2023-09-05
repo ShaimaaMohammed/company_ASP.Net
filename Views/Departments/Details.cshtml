@@ -1,0 +1,23 @@
+﻿@model Department
+
+
+<h1 class="alert alert-warning">@Model.Name Details</h1>
+
+<dl class="row">
+    <dt class="col-2">Id</dt>
+    <dd class="col-10">@Model.Id</dd>
+    <dt class="col-2">Name</dt>
+    <dd class="col-10">@Model.Name</dd>
+    <dt class="col-2">Description</dt>
+    <dd class="col-10">@Model.Description</dd>
+    <dt class="col-2">AnnualBudget</dt>
+    <dd class="col-10">@Model.AnnualBudget</dd>
+    <dt class="col-2">Start Date</dt>
+    <dd class="col-10">@Model.StartDate.ToShortDateString()</dd>
+    <dt class="col-2">Is Active</dt>
+    <dd class="col-10">@Model.IsActive</dd>
+</dl>
+
+<hr />
+
+<a asp-controller="Departments",asp-action="GetIndexView" >Back to List</a>

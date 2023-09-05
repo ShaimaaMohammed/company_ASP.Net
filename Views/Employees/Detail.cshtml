@@ -1,0 +1,23 @@
+﻿@model Employee
+
+
+<h1 class="alert alert-warning">@Model.Name Detail</h1>
+
+<dl class="row">
+    <dt class="col-2">Id</dt>
+    <dd class="col-10">@Model.Id</dd>
+    <dt class="col-2">Name</dt>
+    <dd class="col-10">@Model.Name</dd>
+    <dt class="col-2">Position</dt>
+    <dd class="col-10">@Model.Position</dd>
+    <dt class="col-2">Salary</dt>
+    <dd class="col-10">@Model.Salary</dd>
+    <dt class="col-2">Join Date</dt>
+    <dd class="col-10">@Model.JoinDate.ToShortDateString()</dd>
+    <dt class="col-2">Is Active</dt>
+    <dd class="col-10">@Model.IsActive</dd>
+</dl>
+
+<hr />
+
+<a asp-controller="Employees" ,asp-action="GetIndexView">Back to List</a>
